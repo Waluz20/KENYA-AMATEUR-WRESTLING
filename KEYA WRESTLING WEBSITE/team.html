@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-KE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kenya Amateur Wrestling Association | Home of Champions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --kenya-sun: #FFD700;
+            --warrior-blood: #D10000;
+            --savanna-night: #0A1E23;
+            --mat-green: #006400;
+            --hero-overlay: linear-gradient(45deg, 
+                rgba(10,30,35,0.9) 0%,
+                rgba(0,100,0,0.7) 100%);
+        }
+
+        body {
+            font-family: 'Chakra Petch', sans-serif;
+            background: var(--savanna-night);
+            color: white;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* Enhanced Hero Section */
+        .hero-warriors {
+            height: 100vh;
+            background: 
+                var(--hero-overlay),
+                url("back.jpg") center/cover fixed;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-warriors::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('african-pattern.png');
+            opacity: 0.15;
+            mix-blend-mode: soft-light;
+            animation: patternScroll 20s linear infinite;
+        }
+
+        @keyframes patternScroll {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Association Header Styling */
+        .association-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .motto-border {
+            border: 4px solid;
+            border-image: linear-gradient(
+                to right,
+                #000000 25%,
+                #D10000 25% 50%,
+                #FFFFFF 50% 75%,
+                #006400 75%
+            ) 1;
+            padding: 1.5rem 3rem;
+            margin: 2rem auto;
+            position: relative;
+            background: rgba(0,0,0,0.4);
+            max-width: 800px;
+        }
+
+        .motto-text {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Enhanced Social Media */
+        .floating-social {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 1000;
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            color: var(--kenya-sun);
+            transition: all 0.3s;
+            position: relative;
+            padding: 10px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            color: white;
+        }
+
+        .fa-facebook:hover { background: #1877F2; }
+        .fa-instagram:hover { background: #E4405F; }
+        .fa-twitter:hover { background: #1DA1F2; }
+        .fa-youtube:hover { background: #FF0000; }
+        .fa-tiktok:hover { background: #69C9D0; }
+
+        /* Media Gallery */
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .media-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            aspect-ratio: 1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .media-card:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .media-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(209,0,0,0.3) 0%,
+                rgba(0,100,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .media-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Leadership Section with Kenyan Flag Borders */
+        .leader-card {
+            background: rgba(255,255,255,0.05);
+            border: 3px solid;
+            border-image: linear-gradient(
+                to right,
+                #000000 25%,
+                #D10000 25% 50%,
+                #FFFFFF 50% 75%,
+                #006400 75%
+            ) 1;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card:hover {
+            transform: scale(1.03);
+        }
+
+        .leader-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--warrior-blood);
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .association-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .motto-text {
+                font-size: 1.2rem;
+            }
+
+            .motto-border {
+                padding: 1rem;
+                margin: 1rem auto;
+                max-width: 90%;
+            }
+
+            .media-gallery {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .floating-social {
+                right: 1rem;
+                gap: 1rem;
+                transform: translateY(-50%) scale(0.8);
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.8rem;
+            }
+
+            .leader-card {
+                margin-bottom: 2rem;
+            }
+
+            .leader-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-warriors {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .association-title {
+                font-size: 2rem;
+            }
+
+            .motto-text {
+                font-size: 1rem;
+            }
+
+            .floating-social {
+                bottom: 1rem;
+                top: auto;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 0.8rem;
+            }
+
+            .leader-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Social Media -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/KenyaWrestlingOfficial" 
+           class="social-icon"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@KenyaWrestling" 
+           class="social-icon"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/KenyaWrestling" 
+           class="social-icon"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://twitter.com/KenyaWrestling" 
+           class="social-icon"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="https://youtube.com/@KenyaWrestling" 
+           class="social-icon"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-warriors">
+        <div class="container text-center position-relative z-index-1">
+            <h1 class="association-title">
+                <span style="color: var(--warrior-blood)">KENYA</span>
+                <span style="color: var(--kenya-sun)">AMATEUR WRESTLING ASSOCIATION</span>
+            </h1>
+            <div class="motto-border">
+                <p class="motto-text">
+                    UNITED IN STRENGTH • ROOTED IN TRADITION • BUILDING CHAMPIONS
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Gallery -->
+    <section class="py-5">
+        <div class="media-gallery">
+            <div class="media-card">
+                <img src="mahabila.avif" alt="Mahabila Mathayo in competition">
+                <div class="media-caption">Mahabila Mathayo - National Champion</div>
+            </div>
+            <div class="media-card">
+                <img src="team wrestle.jpg" alt="Team Kenya training session">
+                <div class="">High Performance Camp</div>
+            </div>
+            <div class="media-card">
+                <img src="girls.jpg" alt="National Championships event">
+                <div class="media-caption">Annual National Championships</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section with Flag Borders -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="text-center mb-5">Leadership Team</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <div class="leader-card text-center">
+                        <img src="kariuki.jpg" class="leader-image" alt="Kariuki Mwangi">
+                        <h3>Kariuki Mwangi</h3>
+                        <p class="text-warrior-blood">President</p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/in/kariukimwangi" 
+                               class="text-kenya-sun mx-2"
+                               target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/KariukiMwangi" 
+                               class="text-kenya-sun mx-2"
+                               target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="leader-card text-center">
+                        <img src="walucho.jpg" class="leader-image" alt="Walucho Eric">
+                        <h3>Walucho Eric</h3>
+                        <p class="text-warrior-blood">Secretary General</p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/in/waluchoeric" 
+                               class="text-kenya-sun mx-2"
+                               target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/WaluchoEric" 
+                               class="text-kenya-sun mx-2"
+                               target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
